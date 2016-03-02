@@ -1,6 +1,5 @@
-'use strict';
-
 (function () {
+    'use strict';
     angular.module('peopleSearchApp')
         .controller('peopleSearchController', ['peopleDataFactory', function (peopleDataFactory) {
             var vm = this;

@@ -5,6 +5,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sassFiles: 'app/**/*.scss',
 
+        jshint: {
+            all: ['app/**/*.js', 'test/**/*spec.js'],
+            options: {
+                reporter: require('jshint-stylish')
+            }
+        },
+
         sass: {
             dist: {
                 files: {
@@ -57,8 +64,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-serve');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.registerTask('dev', ['default', 'watch']);
-    grunt.registerTask('default', ['clean', 'sass', 'copy']);
+    grunt.registerTask('default', ['jshint', 'clean', 'sass', 'copy']);
     grunt.registerTask('server', ['default', 'serve']);
 };

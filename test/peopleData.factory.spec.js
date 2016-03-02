@@ -1,6 +1,6 @@
-'use strict';
-
 describe("A test suite for People Search Data Factory", function() {
+    'use strict';
+    /* jshint expr: true */
     var peopleDataFactory, $httpBackend;
 
     var person1 = {

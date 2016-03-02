@@ -1,6 +1,6 @@
-'use strict';
-
 describe("A test suite for People Search Controller", function() {
+    'use strict';
+    /* jshint expr: true */
     var $scope, $q, controller, peopleDataFactory;
 
     var person1 = {

@@ -1,6 +1,5 @@
-'use strict';
-
 (function(){
+    'use strict';
     angular.module('people.services')
         .factory('peopleDataFactory', ['$http', function($http){
             return {
