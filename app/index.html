@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="peopleSearchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>People Search</title>
+    <link rel="stylesheet" href="./site.css">
+</head>
+<body data-ng-controller="peopleSearchController as peopleSearchCtrl">
+
+<div class="container people-search" data-ng-cloak="">
+    <header>
+        <div class="page-header">
+            <h1 class="people-search--header">People search</h1>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="form-group">
+            <input type="search" class="form-control people-search--search-term"
+                   data-ng-model="peopleSearchCtrl.model.searchTerm" data-ng-options="peopleSearchCtrl.searchFilterOptions"
+                   placeholder="enter your search term"
+                   aria-label="Enter here to search for people">
+        </div>
+    </div>
+
+    <div class="row">
+        <ul>
+            <li class="col-xs-12 col-sm-6 col-md-4"
+                    data-ng-repeat="person in peopleSearchCtrl.getPeopleData() | filter: {firstName: peopleSearchCtrl.model.searchTerm} track by person.id">
+                <div class="text-center">
+                    <img data-ng-src="./{{person.picture}}" src="#" alt="Picture of {{person.firstName}} {{person.lastName}}"/>
+                </div>
+                <div class="text-center">
+                    <p class="text-center people-search--name">{{person.firstName}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row" data-ng-if="peopleSearchCtrl.hasError()">
+        <div class="alert alert-danger" role="alert">
+            Unable to load the data.
+        </div>
+    </div>
+</div>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script src="./services/index.module.js"></script>
+<script src="./services/peopleData.factory.js"></script>
+<script src="./index.module.js"></script>
+<script src="./controllers/peopleSearch.controller.js"></script>
+</body>
+</html>
