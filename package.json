@@ -23,7 +23,7 @@
     "grunt-sass": "^0.18.0",
     "grunt-serve": "^0.1.6",
     "jshint-stylish": "^2.1.0",
-    "karma": "^0.12.31",
+    "karma": "^6.0.4",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.1.7",
     "karma-mocha": "^0.1.10",
